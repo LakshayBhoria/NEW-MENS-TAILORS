@@ -128,6 +128,7 @@
     <a href="https://facebook.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
     <a href="https://www.instagram.com/newmenstailors/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
     <a href="https://mail.google.com/mail/" target="_blank"><img src="email.webp" alt="Email"></a>
+   
   </div>
 
   <div id="about-output" class="output-container">
@@ -138,7 +139,6 @@
   <div id="services-output" class="output-container">
     <h2>Our Services</h2>
     <p>At <strong>New Men's Tailors</strong>, we take pride in offering a full range of custom stitching services to meet the diverse fashion needs of our clients. With over two decades of experience, we blend traditional techniques with modern trends to deliver impeccable fits and premium finishes.</p>
-    <ul style="text-align:left; max-width:700px; margin: 2rem auto;">
     <ul style="text-align:left; max-width:700px; margin:2rem auto;">
       <li><strong>👔 Men’s Tailoring</strong>
         <ul><li>Formal Suits (2-piece & 3-piece)</li><li>Blazers & Waistcoats</li><li>Shirts & Trousers</li><li>Tuxedos & Dinner Jackets</li></ul>
@@ -186,30 +186,49 @@
 
   <div id="appointment-output" class="output-container">
     <h2>Book an Appointment</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <input type="date" required />
-      <textarea placeholder="What would you like stitched?" required></textarea>
-      <button type="submit">Book Now</button>
-    </form>
-  </div>
+    <form action="https://formspree.io/f/xjkrjkle" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <input type="date" name="date" required />
+  <textarea name="details" placeholder="What would you like stitched?" required></textarea>
+  <button type="submit">Book Now</button>
+</form>
+</div>
 
-  <div id="contact-output" class="output-container">
+<div id="contact-output" class="output-container">
     <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
+    <form action="https://formspree.io/f/xjkrjkle" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send</button>
     </form>
   </div>
+
 
   <div id="imageModal" class="modal" onclick="this.style.display='none'">
     <img id="modalImg" />
   </div>
 
   <footer class="footer">&copy; 2025 NMT | New Men's Tailors. All rights reserved.</footer>
+   <a href="tel:" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0cb528;
+    color: rgb(255, 255, 255);
+    padding: 15px 20px;
+    border-radius: 50000000000%;
+    box-shadow: 4px 0px rgba(0,0,0,0.3);
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    z-index:   1001;
+  " title="Call Now">
+    ✆
+  </a>
+  
+  
 
   <script>
     let slideIndex = 0;
@@ -254,4 +273,6 @@
   </script>
 </body>
 </html>
+
+
 
