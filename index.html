@@ -4,24 +4,219 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NMT | New Men's Tailors</title>
+
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Segoe UI', sans-serif; background:#fff; color:#333; }
-    header {
-      position:fixed; top:0; width:100%; display:flex; justify-content:space-between;
-      align-items:center; padding:1rem 2rem; background-color:rgba(128,0,32,0.9);
-      color:white; z-index:1000;
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI', sans-serif; background:#fff; color:#333; }
+
+  html {
+    scroll-padding-top: 120px; /* This prevents section headers from hiding under the fixed header */
+  }
+
+   header {
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 2rem;
+   background-color:rgba(128,0,32,0.9);
+  color:white;
+  z-index:1000;
+  z-index:1000;
+}
+.branding {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.branding img {
+  height:50px;
+}
+.branding-text h1 {
+  font-size:1.8rem;
+  margin-bottom:2px;
+}
+.branding-text span {
+  font-size:0.85rem;
+  color:#eee;
+}
+nav {
+  display: flex;
+  align-items: center;
+}
+nav a {
+  color:white;
+  text-decoration:none;
+  margin:0 0.7rem;
+  font-weight:500;
+  cursor:pointer;
+}
+nav a.active { border-bottom:2px solid white; }
+nav a:hover { text-decoration:underline; }
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ ADD THIS HERE */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+@media (min-width: 769px) {
+  nav {
+    margin-left: auto;
+  }
+}
+
+
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      z-index: 1002;
     }
-    .branding { display:flex; align-items:center; gap:10px; }
-    .branding img { height:50px; }
-    .branding-text h1 { font-size:1.8rem; margin-bottom:2px; }
-    .branding-text span { font-size:0.85rem; color:#eee; }
-    nav a {
-      color:white; text-decoration:none; margin:0 0.7rem;
-      font-weight:500; cursor:pointer;
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
     }
-    nav a.active { border-bottom:2px solid white; }
-    nav a:hover { text-decoration:underline; }
+
+    @media (max-width: 768px) {
+  /* Navigation Mobile Menu */
+  nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.92); /* darker like Raymond */
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+  nav.active {
+    display: flex;
+  }
+  nav a {
+    margin: 0.8rem 0;
+    font-size: 1.2rem;
+    display: block;
+    color: white;
+  }
+
+  /* Hamburger visible */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Branding Tighter */
+  .branding-text h1 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  .branding-text span {
+    font-size: 0.75rem;
+  }
+
+  /* Hero Text */
+  .hero .welcome-text {
+    font-size: 1.7rem;
+    padding: 0 1rem;
+  }
+  .hero .sub-welcome {
+    font-size: 1rem;
+    padding: 0 1.5rem;
+  }
+
+  /* Hero Image Shrink */
+  .slideshow-container .slide img {
+    height: 260px;
+  }
+
+  /* Caption Box Resize */
+  .caption {
+    padding: 0.8rem 1.2rem;
+    bottom: 20px;
+  }
+  .caption h3 {
+    font-size: 1.3rem;
+  }
+  .caption p {
+    font-size: 0.9rem;
+  }
+
+  /* Output Section Spacing */
+  .output-container {
+    margin-top: 2.5rem;
+    padding: 2rem 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  /* Reduce social icon size */
+  .social-icons-right {
+    right: 6px;
+    gap: 8px;
+  }
+  .social-icons-right a img {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Call Button Shrink */
+  .call-btn {
+    padding: 12px;
+    bottom: 15px;
+    right: 15px;
+  }
+  .call-btn img {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Form inputs spacing */
+  form input,
+  form textarea,
+  form button {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+
+  /* Gallery spacing */
+  .gallery img {
+    width: 45%;
+    margin: 8px auto;
+  }
+    /* Consistent text sizing like sub-welcome line */
+  body,
+  p,
+  li,
+  ul,
+  ol,
+  form input,
+  form textarea,
+  form button,
+  .output-container {
+    font-size: 1.1rem !important;
+    line-height: 1.7;
+  }
+
+  /* Slightly smaller headings for mobile */
+  h1, h2, h3 {
+    font-size: 1.3rem;
+  }
+}
+
+
     .hero { margin-top:100px; padding:2rem; text-align:center; }
     .welcome-text {
       font-size:2.8rem; color:#800020; font-weight:bold; margin-bottom:1rem;
@@ -29,9 +224,11 @@
     .sub-welcome {
       font-size:1.1rem; max-width:700px; margin:0 auto 2rem;
     }
+
     .slideshow-container { position:relative; max-width:100%; margin:auto; overflow:hidden; }
     .slide { display:none; position:relative; }
     .slide img { width:100%; height:500px; object-fit:cover; }
+
     .caption {
       position:absolute; bottom:30px; left:50%; transform:translateX(-50%);
       color:white; background:rgba(0,0,0,0.6); padding:1rem 2rem;
@@ -39,6 +236,7 @@
     }
     .caption h3 { font-size:2rem; font-weight:bold; margin-bottom:0.3rem; }
     .caption p { font-size:1rem; }
+
     .output-container {
       background-color:rgba(255,255,255,0.95); padding:4rem 2rem;
       font-size:1.5rem; line-height:1.8; display:none; text-align:center;
@@ -47,6 +245,7 @@
     .output-container h2 {
       color:#800020; font-size:2.5rem; margin-bottom:1rem;
     }
+
     form input, form textarea, form button {
       display:block; width:100%; margin:0.5rem 0; padding:0.9rem;
       font-size:1rem; border:1px solid #ccc; border-radius:5px;
@@ -57,35 +256,148 @@
       cursor:pointer; font-weight:bold; border-radius:5px;
     }
     form button:hover { background-color:#66001a; }
+
     iframe {
       width:100%; height:400px; border:0; margin-top:1rem;
     }
+
     .footer {
       text-align:center; background-color:#800020; color:white;
       padding:1.5rem; margin-top:2rem; font-size:1rem;
       z-index:2; position:relative;
     }
+
     .gallery img {
       width:200px; height:auto; margin:10px;
       border-radius:10px; cursor:pointer; transition:transform 0.3s;
     }
     .gallery img:hover { transform:scale(1.05); }
+
     .modal {
       display:none; position:fixed; top:0; left:0; width:100%; height:100%;
       background:rgba(0,0,0,0.85); justify-content:center; align-items:center;
       z-index:9999;
     }
     .modal img { max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 0 20px rgba(255,255,255,0.3); }
+
     .social-icons-right {
       position:fixed; top:50%; right:10px; transform:translateY(-50%);
       display:flex; flex-direction:column; gap:10px; z-index:1001;
     }
     .social-icons-right a img { width:32px; height:32px; }
-  </style>
-</head>
-<body>
 
-  <header>
+    .call-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0cb528;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+      text-align: center;
+      text-decoration: none;
+      z-index: 1001;
+    }
+    .call-btn img {
+      width: 28px;
+      height: 28px;
+    
+}
+
+/* Desktop Only Icons */
+.desktop-only {
+  display: flex;
+}
+
+/* Social Icons Inside Mobile Menu */
+.social-icons-mobile {
+  display: none;
+  margin-top: 1.5rem;
+  justify-content: center;
+  gap: 18px;
+}
+.social-icons-mobile a img {
+  width: 26px;
+  height: 26px;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .social-icons-mobile {
+    display: flex;
+  }
+}
+.custom-footer {
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+              url('nmt1.png') center/cover no-repeat;
+  color: #fff;
+  padding: 3rem 2rem;
+  font-size: 1rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1 1 220px;
+}
+
+.footer-column h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.footer-column p {
+  margin-bottom: 0.7rem;
+  opacity: 0.9;
+}
+
+.social-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.social-footer img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+ <header>
+  <div class="header-inner">
     <div class="branding">
       <img src="white.png" alt="NMT Logo" />
       <div class="branding-text">
@@ -93,6 +405,7 @@
         <span>Since 1998</span>
       </div>
     </div>
+
     <nav>
       <a href="#" data-target="home" class="active">Home</a>
       <a href="#" data-target="about">About</a>
@@ -102,38 +415,53 @@
       <a href="#" data-target="offers">Offers</a>
       <a href="#" data-target="appointment">Appointment</a>
       <a href="#" data-target="contact">Contact</a>
-    </nav>
-  </header>
 
+      <!-- Social Icons for mobile -->
+      <div class="social-icons-mobile">
+        <a href="https://facebook.com" target="_blank"><img src="fb.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/newmenstailors/" target="_blank"><img src="instagram-6338393_1280.webp" alt="Instagram"></a>
+        <a href="https://mail.google.com/mail/" target="_blank"><img src="email.webp" alt="Email"></a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</header>
+
+  <!-- Hero -->
   <section id="home-section" class="hero">
     <div class="welcome-text">Welcome to NMT - New Men's Tailors</div>
+
     <div class="sub-welcome">Elevating men’s fashion with precision tailoring and royal elegance. Experience the essence of style and tradition.</div>
     <div class="slideshow-container">
-      <div class="slide">
-        <img src="TAILOR1.png" alt="Slide 1">
-        <div class="caption"><h3>Trust, Quality, Excellence.</h3><p>Premium tailoring in Bahalgarh, Sonipat, Haryana.</p></div>
-      </div>
-      <div class="slide">
-        <img src="TAILOR3.jpg" alt="Slide 2">
-        <div class="caption"><h3>Wedding Perfection</h3><p>Custom sherwanis & suits for your special day.</p></div>
-      </div>
-      <div class="slide">
-        <img src="TAILOR5.webp" alt="Slide 3">
-        <div class="caption"><h3>Modern Styles</h3><p>Fashion for today’s gentlemen, sharp and elegant.</p></div>
-      </div>
+      <div class="slide"><img src="TAILOR1.png" alt="Slide 1"><div class="caption"><h3>Trust, Quality, Excellence.</h3><p>Premium tailoring in Bahalgarh, Sonipat, Haryana.</p></div></div>
+      <div class="slide"><img src="TAILOR3.jpg" alt="Slide 2"><div class="caption"><h3>Wedding Perfection</h3><p>Custom sherwanis & suits for your special day.</p></div></div>
+      <div class="slide"><img src="TAILOR5.webp" alt="Slide 3"><div class="caption"><h3>Modern Styles</h3><p>Fashion for today’s gentlemen, sharp and elegant.</p></div></div>
     </div>
   </section>
 
-  <div class="social-icons-right">
-    <a href="https://facebook.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
-    <a href="https://www.instagram.com/newmenstailors/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
-    <a href="https://mail.google.com/mail/" target="_blank"><img src="email.webp" alt="Email"></a>
-   
-  </div>
+  <!-- Social Icons: Desktop -->
+<div class="social-icons-right desktop-only">
+  <a href="https://facebook.com" target="_blank"><img src="fb.png" alt="Facebook"></a>
+  <a href="https://www.instagram.com/newmenstailors/" target="_blank"><img src="instagram-6338393_1280.webp" alt="Instagram"></a>
+  <a href="https://mail.google.com/mail/" target="_blank"><img src="email.webp" alt="Email"></a>
+</div>
 
+  <!-- Call Button -->
+  <a href="tel:+919671357519" class="call-btn" title="Call Now"><img src="phone-call-icon.png" alt="Call"></a>
+
+  <!-- Section Outputs -->
+  
   <div id="about-output" class="output-container">
     <h2>About Us</h2>
-    <p>New Men's Tailors has been a trusted name in men’s fashion since 1998, offering exceptional craftsmanship, timeless style, and unmatched personal service. Based in Bahalgarh, Sonipat, Haryana, we specialize in custom tailoring for all occasions — from weddings and formal events to everyday elegance. With a deep understanding of traditional techniques and a sharp eye for modern trends, we create garments that reflect confidence, character, and class. Whether you're looking for a perfectly fitted sherwani, a classic three-piece suit, or a casual yet sharp look, our skilled tailors ensure every stitch meets your expectations. At New Men's Tailors, we don’t just sew clothes — we shape your style.</p>
+    <p> <strong>RATTAN SINGH</strong>
+      <p>CEO & FOUNDER (NMT)</p>
+
+    <p>New Men's Tailors has been a trusted name in men’s fashion since 1998, offering exceptional craftsmanship, timeless style, annd we specialize in custom tailoring for all occasions — from weddings and formal events to everyday elegance. With a deep understanding of traditional techniques and a sharp eye for modern trends, we create garments that reflect confidence, character, and class. At New Men's Tailors, we don’t just sew clothes — we shape your style.</p>
   </div>
 
   <div id="services-output" class="output-container">
@@ -160,7 +488,7 @@
 
   <div id="location-output" class="output-container">
     <h2>Store Location</h2>
-    <p>Visit us at:<br><strong>front of government school, bahalgarh (131021), sonipat, Haryana, India</strong></p>
+    <p>Visit us at:<br><strong> Bahalgarh (131021), sonipat, HR, India</strong></p>
     <p><a href="https://www.google.com/maps/place/NEW+MEN%27S+TAILORS+(NMT)/@28.959534,77.0800505,14.51z/data=!4m6!3m5!1s0x390daf3d1494089d:0x43fe1fb236462bc3!8m2!3d28.9585617!4d77.0936856!16s%2Fg%2F11rfrsrrr0?entry=ttu"
          target="_blank" style="color:#800020;font-weight:bold;text-decoration:underline;">
       View on Google Maps
@@ -205,31 +533,54 @@
     </form>
   </div>
 
+  <div id="imageModal" class="modal" onclick="this.style.display='none'"><img id="modalImg"></div>
+  <!-- Custom Raymond-style Footer -->
+<section class="custom-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Our Company</h3>
+      <ul>
+       <!-- Our Company -->
+<ul>
+  <li data-target="about">About Us</li>
+  <li data-target="about">NEW MEN'S TAILORS </li>
+  <li data-target="location">Our Store</li>
+</ul>
 
-  <div id="imageModal" class="modal" onclick="this.style.display='none'">
-    <img id="modalImg" />
+
+
+<!-- Quick Links -->
+<ul>
+  <li data-target="services">Our Businesses</li>
+  <li data-target="contact">Partner With Us</li>
+  <li data-target="contact">Contact</li>
+</ul>
+
+    </div>
+    <div class="footer-column">
+      <h3>Get In Touch</h3>
+      <p><strong>NMT LIMITED, NEW MENS TAILORS</strong><br>Bahalgarh, Sonipat, Haryana – 131021</p>
+    
+      <p>📞 9671357519</p>
+      <p>🕒 Monday to Sunday – 8:00AM To 9:30PM</p>
+      <p>🌐 Shop Online</p>
+      <div class="social-footer">
+        <a href="#"><img src="link.webp" alt="LinkedIn"></a>
+        <a href="#"><img src="instagram-6338393_1280.webp" alt="Instagram"></a>
+        <a href="#"><img src="fb.png" alt="Facebook"></a>
+        <a href="#"><img src="images.png" alt="Twitter"></a>
+        <a href="#"><img src="yt.jpg" alt="YouTube"></a>
+        <a href="#"><img src="pin.png" alt="Pinterest"></a>
+      </div>
+    </div>
   </div>
+</section>
 
+
+  <!-- Footer -->
   <footer class="footer">&copy; 2025 NMT | New Men's Tailors. All rights reserved.</footer>
-   <a href="tel:" style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #0cb528;
-    color: rgb(255, 255, 255);
-    padding: 15px 20px;
-    border-radius: 50000000000%;
-    box-shadow: 4px 0px rgba(0,0,0,0.3);
-    text-align: center;
-    text-decoration: none;
-    font-size: 30px;
-    z-index:   1001;
-  " title="Call Now">
-    ✆
-  </a>
-  
-  
 
+  <!-- Scripts -->
   <script>
     let slideIndex = 0;
     function showSlides() {
@@ -237,10 +588,17 @@
       slides.forEach(slide => slide.style.display = "none");
       slideIndex++;
       if (slideIndex > slides.length) slideIndex = 1;
-      slides[slideIndex-1].style.display = "block";
+      slides[slideIndex - 1].style.display = "block";
       setTimeout(showSlides, 4000);
     }
     showSlides();
+    // Show all sections by default except appointment
+document.querySelectorAll(".output-container").forEach(container => {
+  if (!container.id.includes("appointment")) {
+    container.classList.add("active");
+  }
+});
+
 
     window.addEventListener("DOMContentLoaded", () => {
       const navLinks = document.querySelectorAll("nav a");
@@ -253,16 +611,20 @@
           outputs.forEach(o => o.classList.remove("active"));
           const tgt = link.getAttribute("data-target");
           if (tgt === "home") {
-            window.scrollTo({top:0, behavior:"smooth"});
+            window.scrollTo({ top: 0, behavior: "smooth" });
           } else {
             const sec = document.getElementById(tgt + "-output");
             if (sec) {
               sec.classList.add("active");
-              sec.scrollIntoView({behavior:"smooth"});
+             const yOffset = -120;                                 
+             const y = sec.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: "smooth" });
             }
           }
+          document.querySelector("nav").classList.remove("active");
         });
       });
+
       document.querySelectorAll(".gallery img").forEach(img => {
         img.addEventListener("click", () => {
           document.getElementById("imageModal").style.display = "flex";
@@ -270,9 +632,33 @@
         });
       });
     });
-  </script>
+// Make Raymond-style footer links functional
+document.querySelectorAll(".custom-footer li[data-target]").forEach(item => {
+  item.style.cursor = "pointer";
+  item.addEventListener("click", () => {
+    const target = item.getAttribute("data-target");
+    const section = document.getElementById(`${target}-output`);
+    if (section) {
+      // Hide others
+      document.querySelectorAll(".output-container").forEach(c => c.classList.remove("active"));
+      // Show this
+      section.classList.add("active");
+      // Scroll to it
+      const yOffset = -120;
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+
+      // Optional: remove active from nav too
+      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+    }
+  });
+});
+
+   function toggleMenu() {
+  document.querySelector("nav").classList.toggle("active");
+  document.querySelector(".hamburger").classList.toggle("open");
+   
+   }
+</script>
 </body>
 </html>
-
-
-
